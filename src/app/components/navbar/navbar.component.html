@@ -1,0 +1,12 @@
+<div class="navbar">
+  <div *ngIf="!hideControls" class="navbar__action navbar__back">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <span>Back</span>
+  </div>
+  <span class="navbar__title">
+    <strong>{{ title }}</strong>
+  </span>
+  <mat-icon *ngIf="!hideControls" class="navbar__action navbar__refresh"
+    >refresh</mat-icon
+  >
+</div>

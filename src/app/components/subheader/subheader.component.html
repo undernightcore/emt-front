@@ -1,0 +1,16 @@
+<div class="subheader">
+  <div
+    (click)="selectedTab = 'tickets'"
+    [class.selected]="selectedTab === 'tickets'"
+    class="subheader__tab"
+  >
+    <strong>Billetes</strong>
+  </div>
+  <div
+    (click)="selectedTab = 'history'"
+    [class.selected]="selectedTab === 'history'"
+    class="subheader__tab"
+  >
+    <strong>Historial</strong>
+  </div>
+</div>

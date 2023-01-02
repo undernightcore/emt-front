@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  height: 45px;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #D6112E;
+
+  &__action {
+    display: flex;
+    align-items: center;
+    width: 80px;
+  }
+
+  &__back {
+    justify-content: flex-start;
+    padding-left: 8px;
+  }
+
+  &__title {
+    padding: 0 8px;
+  }
+
+  &__refresh {
+    justify-content: flex-end;
+    padding-right: 14px;
+  }
+}

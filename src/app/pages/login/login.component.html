@@ -1,0 +1,19 @@
+<app-navbar title="EMT | Iniciar sesión" [hideControls]="true"></app-navbar>
+<div class="login">
+  <img src="assets/icons/icon-128x128.png">
+  <div [formGroup]="loginForm" class="login__form">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="correo@correo.com">
+      <mat-hint>Introduce tu correo electronico</mat-hint>
+      <mat-error>Introduce un correo valido porfa</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="tucontraseña">
+      <mat-hint>Introduce tu contraseña</mat-hint>
+      <mat-error>Introduce una contraseña de al menos 6 carácteres</mat-error>
+    </mat-form-field>
+  </div>
+  <button (click)="login()" mat-button>Iniciar sesión</button>
+</div>

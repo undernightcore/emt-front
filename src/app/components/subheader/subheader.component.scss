@@ -1,0 +1,24 @@
+.subheader {
+  display: flex;
+  background-color: darkred;
+
+  &__tab {
+    color: white;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    &:first-child {
+        border-top-right-radius: 8px;
+    }
+    &:last-child {
+        border-top-left-radius: 8px;
+    }
+  }
+}
+
+.selected {
+  background-color: white;
+  color: black;
+}
