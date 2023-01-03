@@ -15,5 +15,7 @@
       <mat-error>Introduce una contraseña de al menos 6 carácteres</mat-error>
     </mat-form-field>
   </div>
-  <button (click)="login()" mat-button>Iniciar sesión</button>
+  <button class="login__login" (click)="login()" mat-button>Iniciar sesión</button>
+  <span>o</span>
+  <button class="login__register" routerLink="/register" mat-button>Registrarse</button>
 </div>

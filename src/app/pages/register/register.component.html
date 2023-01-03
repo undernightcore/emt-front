@@ -1,0 +1,27 @@
+<app-navbar title="EMT | Registrarse" [hideControls]="true"></app-navbar>
+<div class="register">
+  <img src="assets/icons/icon-128x128.png">
+  <div [formGroup]="loginForm" class="register__form">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input type="email" matInput formControlName="name" placeholder="Pepito">
+      <mat-hint>Introduce tu nombre</mat-hint>
+      <mat-error>Introduce un nombre valido porfa</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="correo@correo.com">
+      <mat-hint>Introduce tu correo electronico</mat-hint>
+      <mat-error>Introduce un correo valido porfa</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="tucontraseña">
+      <mat-hint>Introduce una contraseña</mat-hint>
+      <mat-error>Introduce una contraseña de al menos 6 carácteres</mat-error>
+    </mat-form-field>
+  </div>
+  <button class="register__register" (click)="register()" mat-button>Registrarse</button>
+  <span>o</span>
+  <button class="register__login" routerLink="/login" mat-button>Iniciar sesión</button>
+</div>

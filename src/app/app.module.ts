@@ -11,19 +11,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import { SubheaderComponent } from './components/subheader/subheader.component';
 import { HomeComponent } from './pages/home/home.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {RegisterComponent} from "./pages/register/register.component";
+import { ActivateDialogComponent } from './components/ok-dialog/activate-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
     NavbarComponent,
     SubheaderComponent,
-    HomeComponent
+    HomeComponent,
+    ActivateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +45,11 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

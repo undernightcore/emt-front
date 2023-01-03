@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { tap } from 'rxjs';
 import { MessageInterface } from '../interfaces/message';
 import { TokenInterface } from '../interfaces/token';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class AuthService {
     window.localStorage.setItem('token', value)
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   isLogged() {
     return Boolean(this.token)
@@ -42,5 +43,6 @@ export class AuthService {
 
   logout() {
     this.token = ''
+    this.router.navigateByUrl('/login')
   }
 }

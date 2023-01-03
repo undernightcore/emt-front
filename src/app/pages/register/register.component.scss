@@ -1,4 +1,4 @@
-.login {
+.register {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 45px);
@@ -14,12 +14,12 @@
     padding: 10px 0 20px 0;
   }
 
-  &__login {
+  &__register {
     color: white;
     background-color: #D6112E;
   }
 
-  &__register {
+  &__login {
     color: white;
     background-color: #9fb9c9;
   }

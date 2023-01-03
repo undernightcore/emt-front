@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +9,6 @@ export class NavbarComponent {
 
   @Input() title = ''
   @Input() hideControls = false
-
+  @Output() back = new EventEmitter();
+  @Output() refresh = new EventEmitter();
 }
