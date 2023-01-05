@@ -1,2 +1,14 @@
-<app-navbar (back)="logout()" title="Cartera de billetes"></app-navbar>
+<app-navbar (back)="logout()" (refresh)="getTickets()" title="Cartera de billetes"></app-navbar>
 <app-subheader></app-subheader>
+<div class="home">
+  <div class="home__ticket" *ngFor="let ticket of tickets" >
+    <div class="home__ticket__info">
+      <span>Billete sencillo</span>
+      <span>{{ticket.activated_at ? 'ACTIVO' : 'INACTIVO'}}</span>
+    </div>
+    <hr>
+    <div class="home__ticket__date">
+      {{ticket.activated_at ? 'Activado' : 'Caduca'}} {{ticket.activated_at ?? ticket.expires_at}}
+    </div>
+  </div>
+</div>
