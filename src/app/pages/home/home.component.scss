@@ -1,0 +1,24 @@
+.home {
+  top: 95px;
+  height: calc(100vh - 95px);
+  overflow: scroll;
+
+  &__ticket {
+    margin: 16px;
+    padding: 18px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 17px;
+    }
+
+    & > hr {
+      margin: 14px 0 10px 0;
+    }
+
+    &__date {
+      color: red;
+    }
+  }
+}

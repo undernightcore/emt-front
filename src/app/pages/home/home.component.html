@@ -1,14 +1,21 @@
-<app-navbar (back)="logout()" (refresh)="getTickets()" title="Cartera de billetes"></app-navbar>
+<app-navbar
+  (back)="logout()"
+  (refresh)="getTickets()"
+  title="Cartera de billetes"
+></app-navbar>
 <app-subheader></app-subheader>
 <div class="home">
-  <div class="home__ticket" *ngFor="let ticket of tickets" >
+  <div class="home__ticket" *ngFor="let ticket of tickets">
     <div class="home__ticket__info">
-      <span>Billete sencillo</span>
-      <span>{{ticket.activated_at ? 'ACTIVO' : 'INACTIVO'}}</span>
+      <strong>Billete sencillo</strong>
+      <strong [style.color]="ticket.activated_at ? 'green' : ''">{{
+        ticket.activated_at ? "ACTIVO" : "INACTIVO"
+      }}</strong>
     </div>
-    <hr>
+    <hr />
     <div class="home__ticket__date">
-      {{ticket.activated_at ? 'Activado' : 'Caduca'}} {{ticket.activated_at ?? ticket.expires_at}}
+      <span *ngIf="ticket.activated_at">Caduca en {{ticket.activated_at | minDiff : now}} minutos</span>
+      <span *ngIf="!ticket.activated_at">Caduca {{ticket.expires_at | date : "dd/MM/YYYY HH:mm"}}</span>
     </div>
   </div>
 </div>

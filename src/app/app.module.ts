@@ -21,6 +21,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RegisterComponent} from "./pages/register/register.component";
 import { ActivateDialogComponent } from './components/ok-dialog/activate-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { MinDiffPipe } from './pipes/min-diff.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     NavbarComponent,
     SubheaderComponent,
     HomeComponent,
-    ActivateDialogComponent
+    ActivateDialogComponent,
+    MinDiffPipe
   ],
   imports: [
     BrowserModule,

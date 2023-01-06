@@ -13,12 +13,14 @@
   }
 
   &__back {
+    font-size: 18px;
     justify-content: flex-start;
     padding-left: 8px;
   }
 
   &__title {
     padding: 0 8px;
+    font-size: 17px;
   }
 
   &__refresh {
