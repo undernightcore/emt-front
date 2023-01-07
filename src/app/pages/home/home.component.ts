@@ -3,7 +3,8 @@ import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
 import { TicketModel } from '../../models/ticket';
 import { DateTime } from 'luxon';
-import { tap } from 'rxjs';
+import { iif, tap } from 'rxjs';
+import { TabEnum } from '../../interfaces/tab';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { tap } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   tickets: TicketModel[] = [];
+  #mode = TabEnum.TICKETS;
   now = this.#getNow();
 
   constructor(
@@ -19,13 +21,21 @@ export class HomeComponent implements OnInit {
     private ticketsService: TicketsService
   ) {}
 
+  set mode(value: TabEnum) {
+    this.#mode = value;
+    this.getTickets();
+  }
+
   ngOnInit(): void {
     this.getTickets();
   }
 
   getTickets() {
-    this.ticketsService
-      .getTickets()
+    iif(
+      () => this.#mode === TabEnum.TICKETS,
+      this.ticketsService.getTickets(),
+      this.ticketsService.getHistory()
+    )
       .pipe(
         tap(() => {
           this.now = this.#getNow();

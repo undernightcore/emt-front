@@ -3,7 +3,7 @@
   (refresh)="getTickets()"
   title="Cartera de billetes"
 ></app-navbar>
-<app-subheader></app-subheader>
+<app-subheader (tab)="mode = $event"></app-subheader>
 <div class="home">
   <div class="home__ticket" *ngFor="let ticket of tickets">
     <div class="home__ticket__info">
@@ -14,8 +14,11 @@
     </div>
     <hr />
     <div class="home__ticket__date">
-      <span *ngIf="ticket.activated_at">Caduca en {{ticket.activated_at | minDiff : now}} minutos</span>
-      <span *ngIf="!ticket.activated_at">Caduca {{ticket.expires_at | date : "dd/MM/YYYY HH:mm"}}</span>
+      <span *ngIf="ticket.activated_at && ticket.expires_at; else unused">Usado</span>
+      <ng-template #unused>
+        <span *ngIf="ticket.activated_at">Caduca en {{ticket.activated_at | minDiff : now}} minutos</span>
+        <span *ngIf="!ticket.activated_at">Caduca {{ticket.expires_at | date : "dd/MM/YYYY HH:mm"}}</span>
+      </ng-template>
     </div>
   </div>
 </div>

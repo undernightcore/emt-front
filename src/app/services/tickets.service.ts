@@ -28,4 +28,21 @@ export class TicketsService {
         )
       );
   }
+
+  getHistory(page?: number, perPage?: number) {
+    return this.http
+      .get<PaginatedInterface<TicketInterface>>(
+        `${environment.apiBack}/tickets/history`,
+        { params: { page: page ?? 1, perPage: perPage ?? 10 } }
+      )
+      .pipe(
+        map(
+          (tickets) =>
+            ({
+              meta: tickets.meta,
+              data: tickets.data.map((ticket) => new TicketModel(ticket)),
+            } as PaginatedInterface<TicketModel>)
+        )
+      );
+  }
 }
