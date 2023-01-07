@@ -1,8 +1,13 @@
-.home {
-  top: 95px;
-  height: calc(100vh - 95px);
-  overflow: scroll;
+app-navbar, app-subheader {
+  position: sticky;
+  top: 0;
+}
 
+app-subheader {
+  top: 45px;
+}
+
+.home {
   &__ticket {
     margin: 16px;
     padding: 18px;
