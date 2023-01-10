@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TicketsService } from '../../services/tickets.service';
 import { TicketModel } from '../../models/ticket';
-import { DateTime } from 'luxon';
-import { iif, tap } from 'rxjs';
+import { iif } from 'rxjs';
 import { TabEnum } from '../../interfaces/tab';
 
 @Component({
@@ -14,7 +13,6 @@ import { TabEnum } from '../../interfaces/tab';
 export class HomeComponent implements OnInit {
   tickets: TicketModel[] = [];
   #mode = TabEnum.TICKETS;
-  now = this.#getNow();
 
   constructor(
     private authService: AuthService,
@@ -35,20 +33,10 @@ export class HomeComponent implements OnInit {
       () => this.#mode === TabEnum.TICKETS,
       this.ticketsService.getTickets(),
       this.ticketsService.getHistory()
-    )
-      .pipe(
-        tap(() => {
-          this.now = this.#getNow();
-        })
-      )
-      .subscribe((tickets) => (this.tickets = tickets.data));
+    ).subscribe((tickets) => (this.tickets = tickets.data));
   }
 
   logout() {
     this.authService.logout();
-  }
-
-  #getNow() {
-    return DateTime.now().toJSDate();
   }
 }

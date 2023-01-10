@@ -5,40 +5,9 @@
 ></app-navbar>
 <app-subheader (tab)="mode = $event"></app-subheader>
 <div class="home">
-  <div class="home__ticket" *ngFor="let ticket of tickets">
-    <div class="home__ticket__info">
-      <strong>Billete sencillo</strong>
-      <strong
-        *ngIf="
-          ticket.activated_at && !(ticket.activated_at | minDiff : now);
-          else status
-        "
-        >USADO</strong
-      >
-      <ng-template #status>
-        <strong *ngIf="ticket.activated_at" [style.color]="'green'"
-          >ACTIVO</strong
-        >
-        <strong *ngIf="!ticket.activated_at">INACTIVO</strong>
-      </ng-template>
-    </div>
-    <hr />
-    <div class="home__ticket__date">
-      <span
-        *ngIf="
-          ticket.activated_at && !(ticket.activated_at | minDiff : now);
-          else unused
-        "
-        >Usado {{ ticket.activated_at | date : "dd/MM/YYYY HH:mm" }}</span
-      >
-      <ng-template #unused>
-        <span *ngIf="ticket.activated_at"
-          >Caduca en {{ ticket.activated_at | minDiff : now }} minutos</span
-        >
-        <span *ngIf="!ticket.activated_at"
-          >Caduca {{ ticket.expires_at | date : "dd/MM/YYYY HH:mm" }}</span
-        >
-      </ng-template>
-    </div>
-  </div>
+  <app-ticket-item
+    routerLink="/activate/{{ ticket.id }}"
+    [ticket]="ticket"
+    *ngFor="let ticket of tickets"
+  ></app-ticket-item>
 </div>

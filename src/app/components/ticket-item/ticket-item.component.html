@@ -1,0 +1,36 @@
+<div class="ticket">
+  <div class="ticket__info">
+    <strong>Billete sencillo</strong>
+    <strong
+      *ngIf="
+          ticket.activated_at && !(ticket.activated_at | minDiff : now);
+          else status
+        "
+    >USADO</strong
+    >
+    <ng-template #status>
+      <strong *ngIf="ticket.activated_at" [style.color]="'green'"
+      >ACTIVO</strong
+      >
+      <strong *ngIf="!ticket.activated_at">INACTIVO</strong>
+    </ng-template>
+  </div>
+  <hr />
+  <div class="ticket__date">
+      <span
+        *ngIf="
+          ticket.activated_at && !(ticket.activated_at | minDiff : now);
+          else unused
+        "
+      >Usado {{ ticket.activated_at | date : "dd/MM/YYYY HH:mm" }}</span
+      >
+    <ng-template #unused>
+        <span *ngIf="ticket.activated_at"
+        >Caduca en {{ ticket.activated_at | minDiff : now }} minutos</span
+        >
+      <span *ngIf="!ticket.activated_at"
+      >Caduca {{ ticket.expires_at | date : "dd/MM/YYYY HH:mm" }}</span
+      >
+    </ng-template>
+  </div>
+</div>

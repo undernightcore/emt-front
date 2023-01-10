@@ -22,6 +22,8 @@ import {RegisterComponent} from "./pages/register/register.component";
 import { ActivateDialogComponent } from './components/ok-dialog/activate-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { MinDiffPipe } from './pipes/min-diff.pipe';
+import { ActivateComponent } from './pages/activate/activate.component';
+import { TicketItemComponent } from './components/ticket-item/ticket-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { MinDiffPipe } from './pipes/min-diff.pipe';
     SubheaderComponent,
     HomeComponent,
     ActivateDialogComponent,
-    MinDiffPipe
+    MinDiffPipe,
+    ActivateComponent,
+    TicketItemComponent
   ],
   imports: [
     BrowserModule,
