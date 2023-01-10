@@ -4,11 +4,21 @@
     <div class="activate__ticket__title"><strong>Billete sencillo</strong></div>
     <img src="assets/images/ticket-banner.png" />
     <div class="activate__ticket__description"><strong>Activar justo antes de entrar</strong></div>
-    <button>Activar billete</button>
+    <button (click)="showConfirm = true">Activar billete</button>
     <div class="activate__ticket__divider"></div>
     <div class="activate__ticket__actions">
       <span><mat-icon>more_horiz</mat-icon>Acciones</span
       ><span><mat-icon>list</mat-icon>Detalles</span>
     </div>
   </div>
+  <ng-container *ngIf="showConfirm">
+    <div class="activate__overlay"></div>
+    <div class="activate__confirm">
+      <p>• Activa el billete justo antes de subir al autobus</p>
+      <p>• El billete es válido por una hora despues de la activación</p>
+      <p>• Una vez que el billete ha sido activado, ya no se puede desactivar.</p>
+      <button (click)="activateTicket()">Activar billete</button>
+      <span (click)="showConfirm = false"><mat-icon>close</mat-icon>Cerrar</span>
+    </div>
+  </ng-container>
 </div>

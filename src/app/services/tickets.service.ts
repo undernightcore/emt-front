@@ -5,6 +5,7 @@ import { TicketInterface } from '../interfaces/ticket';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs';
 import { TicketModel } from '../models/ticket';
+import { MessageInterface } from '../interfaces/message';
 
 @Injectable({
   providedIn: 'root',
@@ -44,5 +45,12 @@ export class TicketsService {
             } as PaginatedInterface<TicketModel>)
         )
       );
+  }
+
+  activateTicket(ticketId: number) {
+    return this.http.post<MessageInterface>(
+      `${environment.apiBack}/tickets/${ticketId}/activate`,
+      {}
+    );
   }
 }
