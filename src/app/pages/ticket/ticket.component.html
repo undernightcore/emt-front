@@ -6,13 +6,16 @@
     <div class="ticket__card__banner">
       <div class="ticket__card__banner__date">
         <div></div>
-        <span>{{now | date:'h:mm:ss a. dd/MM/yyyy' | lowercase}}</span>
+        <span>{{ now | date : "h:mm:ss a. dd/MM/yyyy" | lowercase }}</span>
         <div></div>
         <div></div>
       </div>
       <img src="assets/images/ticket-banner.jpeg" />
       <div *ngIf="ticket" class="ticket__card__banner__activation">
-        <strong>Activado {{ ticket.activated_at | date:'HH:mm' }}</strong>
+        <strong>Activado {{ ticket.activated_at | date : "HH:mm" }}</strong>
+      </div>
+      <div *ngIf="!ticket" class="ticket__card__banner__activation">
+        <strong>Ticket no valido</strong>
       </div>
     </div>
   </div>

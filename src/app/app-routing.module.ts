@@ -6,6 +6,7 @@ import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './pages/register/register.component';
 import { ActivateComponent } from './pages/activate/activate.component';
 import { TicketComponent } from './pages/ticket/ticket.component';
+import {TicketGuard} from "./guards/ticket.guard";
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
     title: 'EMT - Ticket',
     path: 'ticket/:id',
     component: TicketComponent,
-    canActivate: [LoginGuard],
+    canActivate: [LoginGuard, TicketGuard],
   },
 ];
 
