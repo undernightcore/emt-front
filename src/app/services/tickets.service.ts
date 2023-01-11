@@ -53,4 +53,10 @@ export class TicketsService {
       {}
     );
   }
+
+  getTicket(ticketId: number) {
+    return this.http
+      .get<TicketInterface>(`${environment.apiBack}/tickets/${ticketId}`)
+      .pipe(map((ticket) => new TicketModel(ticket)));
+  }
 }

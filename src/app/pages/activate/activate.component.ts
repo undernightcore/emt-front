@@ -24,11 +24,11 @@ export class ActivateComponent implements OnInit {
   activateTicket() {
     this.ticketService.activateTicket(this.ticketId).subscribe({
       next: () => {
-        this.router.navigate(['/tickets'])
+        this.router.navigate(['/ticket', this.ticketId])
       }, error: (error) => {
         const displayError = error.error as ErrorInterface;
         this.showConfirm = false;
-        this.sb.open(displayError.errors[0], undefined, { duration: 2000});
+        this.sb.open(displayError.errors[0], undefined, { duration: 2000 });
       }
     })
   }

@@ -9,7 +9,7 @@ export class MinDiffPipe implements PipeTransform {
     return Math.floor(
       Interval.fromDateTimes(
         now,
-        DateTime.fromJSDate(activated).plus({ hour: 1 }).toJSDate()
+        DateTime.fromJSDate(activated).plus({ minutes: 60 }).toJSDate()
       ).length('minutes')
     );
   }

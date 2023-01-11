@@ -9,8 +9,10 @@
 
 .activate {
   padding: 45px 10px;
+  height: 100vh;
   background-color: #f7f7f7;
   animation: 0.25s ease-out 0s 1 slideInToTop;
+  box-sizing: border-box;
 
   &__close {
     font-size: 16px;
@@ -25,11 +27,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 90px);
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 
     & > img {
+      border-radius: 12px;
       margin: 10px 0;
       width: 92%;
     }

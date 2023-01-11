@@ -1,0 +1,19 @@
+<div class="ticket">
+  <span routerLink="/" class="ticket__close">Cerrar</span>
+  <div class="ticket__card">
+    <div class="ticket__card__title"><strong>Billete sencillo</strong></div>
+    <img class="ticket__card__qr" src="assets/images/ticket-qr.gif" />
+    <div class="ticket__card__banner">
+      <div class="ticket__card__banner__date">
+        <div></div>
+        <span>{{now | date:'h:mm:ss a. dd/MM/yyyy' | lowercase}}</span>
+        <div></div>
+        <div></div>
+      </div>
+      <img src="assets/images/ticket-banner.jpeg" />
+      <div *ngIf="ticket" class="ticket__card__banner__activation">
+        <strong>Activado {{ ticket.activated_at | date:'HH:mm' }}</strong>
+      </div>
+    </div>
+  </div>
+</div>

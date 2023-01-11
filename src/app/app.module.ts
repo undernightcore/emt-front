@@ -24,6 +24,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { MinDiffPipe } from './pipes/min-diff.pipe';
 import { ActivateComponent } from './pages/activate/activate.component';
 import { TicketItemComponent } from './components/ticket-item/ticket-item.component';
+import { TicketComponent } from './pages/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TicketItemComponent } from './components/ticket-item/ticket-item.compon
     ActivateDialogComponent,
     MinDiffPipe,
     ActivateComponent,
-    TicketItemComponent
+    TicketItemComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

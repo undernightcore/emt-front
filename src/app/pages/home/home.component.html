@@ -6,7 +6,7 @@
 <app-subheader (tab)="mode = $event"></app-subheader>
 <div class="home">
   <app-ticket-item
-    routerLink="/activate/{{ ticket.id }}"
+    [routerLink]="(ticket.activated_at ? '/ticket/' : '/activate/') + ticket.id"
     [ticket]="ticket"
     *ngFor="let ticket of tickets"
   ></app-ticket-item>
